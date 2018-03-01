@@ -5,7 +5,7 @@ module ActionController #:nodoc:
     eager_autoload do
       autoload :Sweeper,  'rails/observers/action_controller/caching/sweeper'
       autoload :Sweeping, 'rails/observers/action_controller/caching/sweeping'
-    end
+    end if defined?(ActiveRecord)
 
     ActionController::Base.extend Sweeping::ClassMethods if defined?(ActiveRecord)
   end
